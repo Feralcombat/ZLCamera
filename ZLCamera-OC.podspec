@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/Feralcombat/ZLCamera-OC.git", :tag => "#{s.version}" }
 
-  s.source_files  = "ZLCameraViewController/**/*.{h,m,bundle}"
+  s.source_files  = "ZLCamera-OC/ZLCameraViewController/*.{h,m,bundle}"
 
   s.framework  = "SomeFramework"
   s.frameworks = "UIKit", "Foundation", "AVFoundation"
