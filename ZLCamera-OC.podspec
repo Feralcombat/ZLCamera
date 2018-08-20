@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency "Masnory"
+  s.dependency "Masonry"
 
 end
