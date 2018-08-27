@@ -9,7 +9,7 @@
 #import "ZLPhotoPreviewViewController.h"
 #import "ZLImageBlurButton.h"
 #import "ZLConstant.h"
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 @interface ZLPhotoPreviewViewController ()<UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning>
 @property (nonatomic, strong) UIImageView *imageView;

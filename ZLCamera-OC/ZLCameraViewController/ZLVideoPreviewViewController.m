@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ZLImageBlurButton.h"
 #import "ZLConstant.h"
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 @interface ZLVideoPreviewViewController ()<UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning>
 @property (nonatomic, strong) AVPlayerItem *playerItem;

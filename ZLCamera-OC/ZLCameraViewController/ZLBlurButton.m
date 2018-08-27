@@ -8,7 +8,7 @@
 
 #import "ZLBlurButton.h"
 #import "ZLProgressView.h"
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 @interface ZLBlurButton ()
 @property (nonatomic, strong) ZLProgressView *progressView;

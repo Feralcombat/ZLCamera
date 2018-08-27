@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ZLBlurButton.h"
 #import "ZLConstant.h"
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 @interface ZLCaptureViewController ()<ZLBlurButtonDelegate,UIAlertViewDelegate,AVCaptureFileOutputRecordingDelegate,ZLVideoPreviewViewControllerDelegate,ZLPhotoPreviewViewControllerDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic, strong) AVCaptureDevice *videoDevice;
