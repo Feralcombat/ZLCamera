@@ -17,6 +17,9 @@
 @end
 
 @interface ZLCameraViewController : UINavigationController
+/**控制是允许拍照*/
+@property (nonatomic, assign) BOOL photoEnabled;
 
 - (instancetype)initWithDelegate:(id<ZLCameraViewControllerDelegate>)delegate;
+
 @end

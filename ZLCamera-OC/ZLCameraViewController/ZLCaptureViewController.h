@@ -19,4 +19,5 @@
 @interface ZLCaptureViewController : UIViewController
 @property (nonatomic, weak) id<ZLCaptureViewControllerDelegate> delegate;
 @property (nonatomic, assign) CGFloat maxVideoDuration;
+@property (nonatomic, assign) BOOL photoEnabled;
 @end

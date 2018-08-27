@@ -53,7 +53,9 @@
         [self setupCamera:^(BOOL completion) {
             if (completion) {
                 weakSelf.setupComplete = YES;
-                [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
+                if (weakSelf.photoEnabled) {
+                    [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
+                }
             }
         }];
     }
@@ -417,6 +419,7 @@
     self.noticeLabel.font = [UIFont systemFontOfSize:14.0f];
     self.noticeLabel.text = @"轻触拍照，按住摄像";
     self.noticeLabel.textColor = [UIColor whiteColor];
+    self.noticeLabel.hidden = !self.photoEnabled;
     [self.view addSubview:self.noticeLabel];
     
     self.snapButton = [[ZLBlurButton alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
@@ -513,21 +516,23 @@
 #pragma mark - ZLBlurButtonDelegate
 - (void)blurButtonPressed:(ZLBlurButton *)button{
     __weak typeof(self)weakSelf = self;
-    [self.imageOutput captureStillImageAsynchronouslyFromConnection:[self.imageOutput connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
-        if (error) {
-            return ;
-        }
-        if (imageDataSampleBuffer) {
-            NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-            UIImage *image = [UIImage imageWithData:data];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
-                previewVC.image = image;
-                previewVC.delegate = weakSelf;
-                [weakSelf.navigationController pushViewController:previewVC animated:YES];
-            });
-        }
-    }];
+    if (self.photoEnabled) {
+        [self.imageOutput captureStillImageAsynchronouslyFromConnection:[self.imageOutput connectionWithMediaType:AVMediaTypeVideo] completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
+            if (error) {
+                return ;
+            }
+            if (imageDataSampleBuffer) {
+                NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                UIImage *image = [UIImage imageWithData:data];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
+                    previewVC.image = image;
+                    previewVC.delegate = weakSelf;
+                    [weakSelf.navigationController pushViewController:previewVC animated:YES];
+                });
+            }
+        }];
+    }
 }
 
 - (void)blurButtonLongPressed:(ZLBlurButton *)button isStart:(BOOL)isStart{

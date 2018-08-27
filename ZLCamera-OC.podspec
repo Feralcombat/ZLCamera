@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZLCamera-OC"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A camera like WeChat"
 
   s.homepage     = "https://github.com/Feralcombat/ZLCamera-OC"
@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
   s.source_files  = "ZLCamera-OC/ZLCameraViewController/*.{h,m}"
   s.resources = "ZLCamera-OC/ZLCameraViewController/*.{bundle}"
 
-  s.framework  = "SomeFramework"
   s.frameworks = "UIKit", "Foundation", "AVFoundation"
 
   s.requires_arc = true
