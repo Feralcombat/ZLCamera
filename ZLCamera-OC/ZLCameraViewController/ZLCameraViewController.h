@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+/**是否允许拍照*/
+UIKIT_EXTERN NSString const *ZLCameraPhotoEnabledKey;
+/**视频允许的最大时间*/
+UIKIT_EXTERN NSString const *ZLCameraVideoMaxDurationKey;
+
 @class ZLCameraViewController;
 @protocol ZLCameraViewControllerDelegate <NSObject>
 @optional
@@ -17,9 +22,15 @@
 @end
 
 @interface ZLCameraViewController : UINavigationController
-/**控制是允许拍照*/
-@property (nonatomic, assign) BOOL photoEnabled;
 
-- (instancetype)initWithDelegate:(id<ZLCameraViewControllerDelegate>)delegate;
+/**
+ 初始化相机
+
+ @param delegate 代理
+ @param options 配置
+ @return 实例
+ */
+- (instancetype)initWithDelegate:(id<ZLCameraViewControllerDelegate>)delegate
+                         options:(NSDictionary *)options;
 
 @end

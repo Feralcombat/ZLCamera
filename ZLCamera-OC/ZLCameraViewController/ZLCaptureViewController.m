@@ -53,9 +53,7 @@
         [self setupCamera:^(BOOL completion) {
             if (completion) {
                 weakSelf.setupComplete = YES;
-                if (weakSelf.photoEnabled) {
-                    [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
-                }
+                [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
             }
         }];
     }
@@ -417,7 +415,12 @@
 
     self.noticeLabel = [[UILabel alloc] init];
     self.noticeLabel.font = [UIFont systemFontOfSize:14.0f];
-    self.noticeLabel.text = @"轻触拍照，按住摄像";
+    if (self.photoEnabled) {
+        self.noticeLabel.text = @"轻触拍照，按住摄像";
+    }
+    else{
+        self.noticeLabel.text = @"按住摄像";
+    }
     self.noticeLabel.textColor = [UIColor whiteColor];
     self.noticeLabel.hidden = !self.photoEnabled;
     [self.view addSubview:self.noticeLabel];
@@ -428,6 +431,7 @@
     self.snapButton.layer.cornerRadius = 40;
     self.snapButton.layer.masksToBounds = YES;
     self.snapButton.delegate = self;
+    [self.snapButton setSingleClickEnabled:self.photoEnabled];
     [self.view addSubview:self.snapButton];
 
     self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(captureTapped:)];
@@ -545,7 +549,7 @@
                 make.height.mas_equalTo(102);
             }];
             
-            [weakSelf.snapButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            [weakSelf.snapButton.circleView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(44);
                 make.height.mas_equalTo(44);
             }];

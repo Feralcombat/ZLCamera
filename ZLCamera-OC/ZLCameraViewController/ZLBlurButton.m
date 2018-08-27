@@ -29,6 +29,8 @@
         self.circleView.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0  blue:245.0/255.0  alpha:1.0f];
         [self.contentView addSubview:self.circleView];
         
+        self.progressView = [[ZLProgressView alloc] initWithFrame:CGRectZero];
+        
         self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         
         self.longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
@@ -72,14 +74,19 @@
 }
 
 - (void)setProgress:(CGFloat)progress{
-    if ([self.contentView.subviews containsObject:self.progressView]) {
+    if (![self.contentView.subviews containsObject:self.progressView]) {
         self.progressView.frame = CGRectMake(2, 2, self.contentView.bounds.size.width - 4, self.contentView.bounds.size.height - 4);
         [self.contentView addSubview:self.progressView];
     }
+    [self.progressView updateProgress:progress];
 }
 
 - (void)requestEndLongPress{
     self.longGesture.enabled = NO;
+}
+
+- (void)setSingleClickEnabled:(BOOL)enabled{
+    self.tapGesture.enabled = enabled;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
@@ -96,7 +103,7 @@
                 [self.delegate blurButtonLongPressed:self isStart:NO];
             }
         }
-        else{
+        else if (state == UIGestureRecognizerStateCancelled){
             [self.progressView removeFromSuperview];
             if ([self.delegate respondsToSelector:@selector(blurButtonLongPressed:isStart:)]) {
                 [self.delegate blurButtonLongPressed:self isStart:NO];
