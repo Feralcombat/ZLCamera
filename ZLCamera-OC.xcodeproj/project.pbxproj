@@ -28,6 +28,8 @@
 		287A0B3120EDE0C50090435E /* video_icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2920EDE0C50090435E /* video_icon_back@2x.png */; };
 		287A0B3220EDE0C50090435E /* photo_icon_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2A20EDE0C50090435E /* photo_icon_hide@2x.png */; };
 		287A0B3320EDE0C50090435E /* photo_icon_cut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2B20EDE0C50090435E /* photo_icon_cut@2x.png */; };
+		2883C2632133DC7F0077B5F1 /* NSBundle+ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */; };
+		2883C2662133DD090077B5F1 /* ZLCameraComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883C2652133DD090077B5F1 /* ZLCameraComponent.m */; };
 		2883EA3C212A989B00777DB3 /* ZLCameraBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */; };
 		2883EA3D212A98B600777DB3 /* ZLBlurButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0620EDAB590090435E /* ZLBlurButton.m */; };
 		2883EA3E212A98B800777DB3 /* ZLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0920EDAB7C0090435E /* ZLProgressView.m */; };
@@ -98,6 +100,10 @@
 		287A0B2920EDE0C50090435E /* video_icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_icon_back@2x.png"; sourceTree = "<group>"; };
 		287A0B2A20EDE0C50090435E /* photo_icon_hide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_icon_hide@2x.png"; sourceTree = "<group>"; };
 		287A0B2B20EDE0C50090435E /* photo_icon_cut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_icon_cut@2x.png"; sourceTree = "<group>"; };
+		2883C2612133DC7F0077B5F1 /* NSBundle+ZLCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ZLCamera.h"; sourceTree = "<group>"; };
+		2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ZLCamera.m"; sourceTree = "<group>"; };
+		2883C2642133DD090077B5F1 /* ZLCameraComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLCameraComponent.h; sourceTree = "<group>"; };
+		2883C2652133DD090077B5F1 /* ZLCameraComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLCameraComponent.m; sourceTree = "<group>"; };
 		2883EA2F212A97C800777DB3 /* ZLCameraFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZLCameraFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2883EA31212A97C800777DB3 /* ZLCameraFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLCameraFramework.h; sourceTree = "<group>"; };
 		2883EA32212A97C800777DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +202,10 @@
 				287A0B1520EDABED0090435E /* ZLPhotoPreviewViewController.m */,
 				287A0B1720EDAC150090435E /* ZLVideoPreviewViewController.h */,
 				287A0B1820EDAC150090435E /* ZLVideoPreviewViewController.m */,
+				2883C2612133DC7F0077B5F1 /* NSBundle+ZLCamera.h */,
+				2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */,
+				2883C2642133DD090077B5F1 /* ZLCameraComponent.h */,
+				2883C2652133DD090077B5F1 /* ZLCameraComponent.m */,
 			);
 			path = ZLCameraViewController;
 			sourceTree = "<group>";
@@ -447,11 +457,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2883C2662133DD090077B5F1 /* ZLCameraComponent.m in Sources */,
 				287A0B1020EDABBE0090435E /* ZLCameraViewController.m in Sources */,
 				287A0B0A20EDAB7C0090435E /* ZLProgressView.m in Sources */,
 				287A0B0720EDAB590090435E /* ZLBlurButton.m in Sources */,
 				287A0AF220EDA9ED0090435E /* ViewController.m in Sources */,
 				287A0AFD20EDA9EF0090435E /* main.m in Sources */,
+				2883C2632133DC7F0077B5F1 /* NSBundle+ZLCamera.m in Sources */,
 				287A0B1920EDAC150090435E /* ZLVideoPreviewViewController.m in Sources */,
 				287A0B1620EDABED0090435E /* ZLPhotoPreviewViewController.m in Sources */,
 				287A0B1320EDABD50090435E /* ZLCaptureViewController.m in Sources */,

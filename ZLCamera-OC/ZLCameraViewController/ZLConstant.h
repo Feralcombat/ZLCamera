@@ -9,8 +9,11 @@
 #ifndef ZLConstant_h
 #define ZLConstant_h
 
+#import "ZLCameraComponent.h"
+#import "NSBundle+ZLCamera.h"
+
 #define ZLDeviceWidth  [UIScreen mainScreen].bounds.size.width
 #define ZLDeviceHeight  [UIScreen mainScreen].bounds.size.height
-#define ZLBundlePath [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @"ZLCameraBundle.bundle"]
+#define ZLBundlePath [[NSBundle zl_Bundle] resourcePath]
 
 #endif /* ZLConstant_h */
