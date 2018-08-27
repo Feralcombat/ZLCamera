@@ -28,8 +28,6 @@
 		287A0B3120EDE0C50090435E /* video_icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2920EDE0C50090435E /* video_icon_back@2x.png */; };
 		287A0B3220EDE0C50090435E /* photo_icon_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2A20EDE0C50090435E /* photo_icon_hide@2x.png */; };
 		287A0B3320EDE0C50090435E /* photo_icon_cut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2B20EDE0C50090435E /* photo_icon_cut@2x.png */; };
-		2883EA36212A97C800777DB3 /* ZLCameraFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2883EA2F212A97C800777DB3 /* ZLCameraFramework.framework */; };
-		2883EA37212A97C800777DB3 /* ZLCameraFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2883EA2F212A97C800777DB3 /* ZLCameraFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2883EA3C212A989B00777DB3 /* ZLCameraBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */; };
 		2883EA3D212A98B600777DB3 /* ZLBlurButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0620EDAB590090435E /* ZLBlurButton.m */; };
 		2883EA3E212A98B800777DB3 /* ZLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0920EDAB7C0090435E /* ZLProgressView.m */; };
@@ -61,20 +59,6 @@
 			remoteInfo = ZLCameraBundle;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		2883EA3B212A97C800777DB3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2883EA37212A97C800777DB3 /* ZLCameraFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0FB73296396ABCF0669DC721 /* libPods-ZLCameraFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZLCameraFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2883EA36212A97C800777DB3 /* ZLCameraFramework.framework in Frameworks */,
 				A1C4E1376D54C262D11B77E4 /* libPods-ZLCamera-OC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,9 +276,6 @@
 				287A0AE620EDA9ED0090435E /* Sources */,
 				287A0AE720EDA9ED0090435E /* Frameworks */,
 				287A0AE820EDA9ED0090435E /* Resources */,
-				2672898F9C5DF48E822ABB44 /* [CP] Embed Pods Frameworks */,
-				48ACD4A30E33D6D5BF2FE0F5 /* [CP] Copy Pods Resources */,
-				2883EA3B212A97C800777DB3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,7 +313,6 @@
 				2883EA2B212A97C800777DB3 /* Frameworks */,
 				2883EA2C212A97C800777DB3 /* Headers */,
 				2883EA2D212A97C800777DB3 /* Resources */,
-				B7FD704B77754C00554806D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -425,36 +404,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2672898F9C5DF48E822ABB44 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48ACD4A30E33D6D5BF2FE0F5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		973280E418CD19C9B27F4AF7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -471,21 +420,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7FD704B77754C00554806D1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZLCameraFramework/Pods-ZLCameraFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C33FB6E48F2E18B58D1B6F91 /* [CP] Check Pods Manifest.lock */ = {
