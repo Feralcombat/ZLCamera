@@ -5,7 +5,3 @@ target 'ZLCamera-OC' do
 pod 'Masonry'
 
 end
-
-target 'ZLCameraFramework' do
-pod 'Masonry'
-end

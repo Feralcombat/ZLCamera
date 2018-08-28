@@ -30,26 +30,8 @@
 		287A0B3320EDE0C50090435E /* photo_icon_cut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2B20EDE0C50090435E /* photo_icon_cut@2x.png */; };
 		2883C2632133DC7F0077B5F1 /* NSBundle+ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */; };
 		2883C2662133DD090077B5F1 /* ZLCameraComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883C2652133DD090077B5F1 /* ZLCameraComponent.m */; };
-		2883EA3C212A989B00777DB3 /* ZLCameraBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */; };
-		2883EA3D212A98B600777DB3 /* ZLBlurButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0620EDAB590090435E /* ZLBlurButton.m */; };
-		2883EA3E212A98B800777DB3 /* ZLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0920EDAB7C0090435E /* ZLProgressView.m */; };
-		2883EA3F212A98BC00777DB3 /* ZLImageBlurButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0C20EDAB9E0090435E /* ZLImageBlurButton.m */; };
-		2883EA40212A98BE00777DB3 /* ZLCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B0F20EDABBE0090435E /* ZLCameraViewController.m */; };
-		2883EA41212A98C100777DB3 /* ZLCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B1220EDABD50090435E /* ZLCaptureViewController.m */; };
-		2883EA42212A98C300777DB3 /* ZLPhotoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B1520EDABED0090435E /* ZLPhotoPreviewViewController.m */; };
-		2883EA43212A98C600777DB3 /* ZLVideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0B1820EDAC150090435E /* ZLVideoPreviewViewController.m */; };
-		2883EA44212A98E100777DB3 /* ZLConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B0420EDAAE00090435E /* ZLConstant.h */; };
-		2883EA45212A98F200777DB3 /* ZLBlurButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B0520EDAB590090435E /* ZLBlurButton.h */; };
-		2883EA46212A98F200777DB3 /* ZLProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B0820EDAB7C0090435E /* ZLProgressView.h */; };
-		2883EA47212A98F200777DB3 /* ZLImageBlurButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B0B20EDAB9E0090435E /* ZLImageBlurButton.h */; };
-		2883EA48212A98F200777DB3 /* ZLCameraViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B0E20EDABBE0090435E /* ZLCameraViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2883EA49212A98F200777DB3 /* ZLCaptureViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B1120EDABD50090435E /* ZLCaptureViewController.h */; };
-		2883EA4A212A98F200777DB3 /* ZLPhotoPreviewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B1420EDABED0090435E /* ZLPhotoPreviewViewController.h */; };
-		2883EA4B212A98F200777DB3 /* ZLVideoPreviewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 287A0B1720EDAC150090435E /* ZLVideoPreviewViewController.h */; };
-		2883EA4D212A993C00777DB3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2883EA4C212A993C00777DB3 /* AVFoundation.framework */; };
 		289EEC7E2105AA8D000C9168 /* ZLCameraBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */; };
 		A1C4E1376D54C262D11B77E4 /* libPods-ZLCamera-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10586B3A0679E5D57834D91C /* libPods-ZLCamera-OC.a */; };
-		D0EC2230B5A8111A4104B43E /* libPods-ZLCameraFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB73296396ABCF0669DC721 /* libPods-ZLCameraFramework.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,9 +86,6 @@
 		2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ZLCamera.m"; sourceTree = "<group>"; };
 		2883C2642133DD090077B5F1 /* ZLCameraComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLCameraComponent.h; sourceTree = "<group>"; };
 		2883C2652133DD090077B5F1 /* ZLCameraComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLCameraComponent.m; sourceTree = "<group>"; };
-		2883EA2F212A97C800777DB3 /* ZLCameraFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZLCameraFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2883EA31212A97C800777DB3 /* ZLCameraFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLCameraFramework.h; sourceTree = "<group>"; };
-		2883EA32212A97C800777DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2883EA4C212A993C00777DB3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2883EA4E212A99B000777DB3 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZLCameraBundle.bundle; sourceTree = "<group>"; };
@@ -132,15 +111,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2883EA2B212A97C800777DB3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2883EA4D212A993C00777DB3 /* AVFoundation.framework in Frameworks */,
-				D0EC2230B5A8111A4104B43E /* libPods-ZLCameraFramework.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -149,7 +119,6 @@
 			children = (
 				287A0AEC20EDA9ED0090435E /* ZLCamera-OC */,
 				287A0B1F20EDDFF50090435E /* ZLCameraBundle */,
-				2883EA30212A97C800777DB3 /* ZLCameraFramework */,
 				287A0AEB20EDA9ED0090435E /* Products */,
 				EA1003811BFD8F58169978DB /* Pods */,
 				C1E3F3650AC209B458D16ED5 /* Frameworks */,
@@ -161,7 +130,6 @@
 			children = (
 				287A0AEA20EDA9ED0090435E /* ZLCamera-OC.app */,
 				287A0B1E20EDDFF50090435E /* ZLCameraBundle.bundle */,
-				2883EA2F212A97C800777DB3 /* ZLCameraFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,15 +194,6 @@
 			path = ZLCameraBundle;
 			sourceTree = "<group>";
 		};
-		2883EA30212A97C800777DB3 /* ZLCameraFramework */ = {
-			isa = PBXGroup;
-			children = (
-				2883EA31212A97C800777DB3 /* ZLCameraFramework.h */,
-				2883EA32212A97C800777DB3 /* Info.plist */,
-			);
-			path = ZLCameraFramework;
-			sourceTree = "<group>";
-		};
 		C1E3F3650AC209B458D16ED5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,24 +217,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		2883EA2C212A97C800777DB3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2883EA48212A98F200777DB3 /* ZLCameraViewController.h in Headers */,
-				2883EA45212A98F200777DB3 /* ZLBlurButton.h in Headers */,
-				2883EA46212A98F200777DB3 /* ZLProgressView.h in Headers */,
-				2883EA47212A98F200777DB3 /* ZLImageBlurButton.h in Headers */,
-				2883EA49212A98F200777DB3 /* ZLCaptureViewController.h in Headers */,
-				2883EA4A212A98F200777DB3 /* ZLPhotoPreviewViewController.h in Headers */,
-				2883EA4B212A98F200777DB3 /* ZLVideoPreviewViewController.h in Headers */,
-				2883EA44212A98E100777DB3 /* ZLConstant.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		287A0AE920EDA9ED0090435E /* ZLCamera-OC */ = {
@@ -314,25 +255,6 @@
 			productReference = 287A0B1E20EDDFF50090435E /* ZLCameraBundle.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		2883EA2E212A97C800777DB3 /* ZLCameraFramework */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2883EA38212A97C800777DB3 /* Build configuration list for PBXNativeTarget "ZLCameraFramework" */;
-			buildPhases = (
-				973280E418CD19C9B27F4AF7 /* [CP] Check Pods Manifest.lock */,
-				2883EA2A212A97C800777DB3 /* Sources */,
-				2883EA2B212A97C800777DB3 /* Frameworks */,
-				2883EA2C212A97C800777DB3 /* Headers */,
-				2883EA2D212A97C800777DB3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ZLCameraFramework;
-			productName = ZLCameraFramework;
-			productReference = 2883EA2F212A97C800777DB3 /* ZLCameraFramework.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -348,10 +270,6 @@
 					};
 					287A0B1D20EDDFF50090435E = {
 						CreatedOnToolsVersion = 9.4;
-						ProvisioningStyle = Automatic;
-					};
-					2883EA2E212A97C800777DB3 = {
-						CreatedOnToolsVersion = 9.4.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -371,7 +289,6 @@
 			targets = (
 				287A0AE920EDA9ED0090435E /* ZLCamera-OC */,
 				287A0B1D20EDDFF50090435E /* ZLCameraBundle */,
-				2883EA2E212A97C800777DB3 /* ZLCameraFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -403,35 +320,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2883EA2D212A97C800777DB3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2883EA3C212A989B00777DB3 /* ZLCameraBundle.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		973280E418CD19C9B27F4AF7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ZLCameraFramework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C33FB6E48F2E18B58D1B6F91 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,20 +367,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2883EA2A212A97C800777DB3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2883EA3D212A98B600777DB3 /* ZLBlurButton.m in Sources */,
-				2883EA41212A98C100777DB3 /* ZLCaptureViewController.m in Sources */,
-				2883EA43212A98C600777DB3 /* ZLVideoPreviewViewController.m in Sources */,
-				2883EA42212A98C300777DB3 /* ZLPhotoPreviewViewController.m in Sources */,
-				2883EA40212A98BE00777DB3 /* ZLCameraViewController.m in Sources */,
-				2883EA3F212A98BC00777DB3 /* ZLImageBlurButton.m in Sources */,
-				2883EA3E212A98B800777DB3 /* ZLProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,58 +584,6 @@
 			};
 			name = Release;
 		};
-		2883EA39212A97C800777DB3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CF286D61679ECCB116A4D36 /* Pods-ZLCameraFramework.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 773BQ977QR;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ZLCameraFramework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhoulin.ZLCameraFramework;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2883EA3A212A97C800777DB3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F058A21F78FC5C3524893277 /* Pods-ZLCameraFramework.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 773BQ977QR;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ZLCameraFramework/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhoulin.ZLCameraFramework;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -785,15 +610,6 @@
 			buildConfigurations = (
 				287A0B2120EDDFF50090435E /* Debug */,
 				287A0B2220EDDFF50090435E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2883EA38212A97C800777DB3 /* Build configuration list for PBXNativeTarget "ZLCameraFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2883EA39212A97C800777DB3 /* Debug */,
-				2883EA3A212A97C800777DB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
