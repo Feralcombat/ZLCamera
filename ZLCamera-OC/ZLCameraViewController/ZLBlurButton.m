@@ -89,6 +89,10 @@
     self.tapGesture.enabled = enabled;
 }
 
+- (void)setLongPressEnabled:(BOOL)enabled{
+    self.longGesture.enabled = enabled;
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     if ([keyPath isEqualToString:@"state"]) {
         UIGestureRecognizerState state = [change[NSKeyValueChangeNewKey] integerValue];

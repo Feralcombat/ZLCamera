@@ -415,10 +415,13 @@
 
     self.noticeLabel = [[UILabel alloc] init];
     self.noticeLabel.font = [UIFont systemFontOfSize:14.0f];
-    if (self.photoEnabled) {
+    if (self.photoEnabled && self.videoEnabled) {
         self.noticeLabel.text = @"轻触拍照，按住摄像";
     }
-    else{
+    else if (self.photoEnabled && !self.videoEnabled){
+        self.noticeLabel.text = @"轻触拍照";
+    }
+    else if (!self.photoEnabled && self.videoEnabled){
         self.noticeLabel.text = @"按住摄像";
     }
     self.noticeLabel.textColor = [UIColor whiteColor];
@@ -432,6 +435,7 @@
     self.snapButton.layer.masksToBounds = YES;
     self.snapButton.delegate = self;
     [self.snapButton setSingleClickEnabled:self.photoEnabled];
+    [self.snapButton setLongPressEnabled:self.videoEnabled];
     [self.view addSubview:self.snapButton];
 
     self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(captureTapped:)];

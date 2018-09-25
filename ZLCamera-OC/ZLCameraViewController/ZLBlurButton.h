@@ -27,4 +27,5 @@ typedef NS_ENUM(NSInteger,ZLBlurButtonActionType) {
 - (void)setProgress:(CGFloat)progress;
 - (void)requestEndLongPress;
 - (void)setSingleClickEnabled:(BOOL)enabled;
+- (void)setLongPressEnabled:(BOOL)enabled;
 @end

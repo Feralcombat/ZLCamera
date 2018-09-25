@@ -9,7 +9,6 @@
 #ifndef ZLConstant_h
 #define ZLConstant_h
 
-#import "ZLCameraComponent.h"
 #import "NSBundle+ZLCamera.h"
 
 #define ZLDeviceWidth  [UIScreen mainScreen].bounds.size.width

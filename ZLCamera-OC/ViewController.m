@@ -21,7 +21,7 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:@{ZLCameraPhotoEnabledKey:@(0)}];
+    ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:@{ZLCameraVideoEnabledKey:@(0)}];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

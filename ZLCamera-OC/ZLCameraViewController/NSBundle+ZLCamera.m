@@ -7,7 +7,7 @@
 //
 
 #import "NSBundle+ZLCamera.h"
-#import "ZLCameraComponent.h"
+#import "ZLCameraViewController.h"
 
 @implementation NSBundle (ZLCamera)
 
@@ -15,7 +15,7 @@
     static NSBundle *bundle = nil;
     if (bundle == nil) {
         // 这里不使用mainBundle是为了适配pod 1.x和0.x
-        bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[ZLCameraComponent class]] pathForResource:@"ZLCameraBundle" ofType:@"bundle"]];
+        bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[ZLCameraViewController class]] pathForResource:@"ZLCameraBundle" ofType:@"bundle"]];
     }
     return bundle;
 }

@@ -9,8 +9,9 @@
 #import "ZLCameraViewController.h"
 #import "ZLCaptureViewController.h"
 
- NSString const *ZLCameraPhotoEnabledKey = @"ZLCameraPhotoEnabledKey";
- NSString const *ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
+NSString const* ZLCameraPhotoEnabledKey = @"ZLCameraPhotoEnabledKey";
+NSString const* ZLCameraVideoEnabledKey = @"ZLCameraVideoEnabledKey";
+NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
 
 @interface ZLCameraViewController ()<UINavigationControllerDelegate,ZLCaptureViewControllerDelegate>
 @property (nonatomic, weak) id<ZLCameraViewControllerDelegate> cameraDelegate;
@@ -24,18 +25,24 @@
     if (self) {
         self.cameraDelegate = delegate;
         BOOL photoEnabled = YES;
+        BOOL videoEnabled = YES;
         CGFloat maxVideoDuration = 30;
         if (options) {
             NSNumber *photoEnabledValue = [options objectForKey:ZLCameraPhotoEnabledKey];
+            NSNumber *videoEnabledValue = [options objectForKey:ZLCameraVideoEnabledKey];
             NSNumber *maxVideoDurationValue = [options objectForKey:ZLCameraVideoMaxDurationKey];
             if (photoEnabledValue) {
                 photoEnabled = [photoEnabledValue boolValue];
+            }
+            if (videoEnabledValue) {
+                videoEnabled = [videoEnabledValue boolValue];
             }
             if (maxVideoDurationValue) {
                 maxVideoDuration = [maxVideoDurationValue floatValue];
             }
         }
         captureVC.photoEnabled = photoEnabled;
+        captureVC.videoEnabled = videoEnabled;
         captureVC.maxVideoDuration = maxVideoDuration;
         captureVC.delegate = self;
     }

@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 /**是否允许拍照*/
-UIKIT_EXTERN NSString const *ZLCameraPhotoEnabledKey;
+UIKIT_EXTERN NSString const* ZLCameraPhotoEnabledKey;
+/**是否允许录视频*/
+UIKIT_EXTERN NSString const* ZLCameraVideoEnabledKey;
 /**视频允许的最大时间*/
-UIKIT_EXTERN NSString const *ZLCameraVideoMaxDurationKey;
+UIKIT_EXTERN NSString const* ZLCameraVideoMaxDurationKey;
 
 @class ZLCameraViewController;
 @protocol ZLCameraViewControllerDelegate <NSObject>
