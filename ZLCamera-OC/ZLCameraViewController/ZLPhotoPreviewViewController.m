@@ -44,10 +44,11 @@
 }
 
 - (void)loadUI{
+    self.view.backgroundColor = [UIColor blackColor];
     
     self.imageView = [[UIImageView alloc] init];
     self.imageView.image = self.image;
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.imageView];
     
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -80,6 +81,10 @@
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
     return UIInterfaceOrientationPortrait;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark - UIViewControllerAnimatedTransitioning

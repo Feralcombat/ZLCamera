@@ -111,6 +111,9 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
     return UIInterfaceOrientationPortrait;
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 /*
 #pragma mark - Navigation

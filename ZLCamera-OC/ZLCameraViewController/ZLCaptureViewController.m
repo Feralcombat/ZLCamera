@@ -533,6 +533,13 @@
             if (imageDataSampleBuffer) {
                 NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [UIImage imageWithData:data];
+                //当横着拍照片时需要强制设置一下照片方向
+                if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
+                    image = [UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationDown];
+                }
+                else if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft){
+                    image = [UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationUp];
+                }
                 image = [image fixOrientation];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
@@ -601,6 +608,10 @@
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
     return UIInterfaceOrientationPortrait;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 /*
 #pragma mark - Navigation
