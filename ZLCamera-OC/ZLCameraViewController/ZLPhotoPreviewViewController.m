@@ -47,6 +47,7 @@
     
     self.imageView = [[UIImageView alloc] init];
     self.imageView.image = self.image;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.imageView];
     
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];

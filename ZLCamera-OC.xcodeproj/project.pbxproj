@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2872C16D215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2872C16C215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.m */; };
 		287A0AEF20EDA9ED0090435E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0AEE20EDA9ED0090435E /* AppDelegate.m */; };
 		287A0AF220EDA9ED0090435E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A0AF120EDA9ED0090435E /* ViewController.m */; };
 		287A0AF520EDA9ED0090435E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 287A0AF320EDA9ED0090435E /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 /* Begin PBXFileReference section */
 		0FB73296396ABCF0669DC721 /* libPods-ZLCameraFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZLCameraFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10586B3A0679E5D57834D91C /* libPods-ZLCamera-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZLCamera-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2872C16B215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZLFixOrientation.h"; sourceTree = "<group>"; };
+		2872C16C215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZLFixOrientation.m"; sourceTree = "<group>"; };
 		287A0AEA20EDA9ED0090435E /* ZLCamera-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZLCamera-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		287A0AED20EDA9ED0090435E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		287A0AEE20EDA9ED0090435E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				287A0B1820EDAC150090435E /* ZLVideoPreviewViewController.m */,
 				2883C2612133DC7F0077B5F1 /* NSBundle+ZLCamera.h */,
 				2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */,
+				2872C16B215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.h */,
+				2872C16C215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.m */,
 			);
 			path = ZLCameraViewController;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				287A0B1620EDABED0090435E /* ZLPhotoPreviewViewController.m in Sources */,
 				287A0B1320EDABD50090435E /* ZLCaptureViewController.m in Sources */,
 				287A0B0D20EDAB9E0090435E /* ZLImageBlurButton.m in Sources */,
+				2872C16D215DEE0F00E91FA5 /* UIImage+ZLFixOrientation.m in Sources */,
 				287A0AEF20EDA9ED0090435E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

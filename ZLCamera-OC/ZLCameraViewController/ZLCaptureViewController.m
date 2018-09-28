@@ -12,6 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ZLBlurButton.h"
 #import "ZLConstant.h"
+#import "UIImage+ZLFixOrientation.h"
 #import <Masonry/Masonry.h>
 
 @interface ZLCaptureViewController ()<ZLBlurButtonDelegate,UIAlertViewDelegate,AVCaptureFileOutputRecordingDelegate,ZLVideoPreviewViewControllerDelegate,ZLPhotoPreviewViewControllerDelegate,UIGestureRecognizerDelegate>
@@ -532,6 +533,7 @@
             if (imageDataSampleBuffer) {
                 NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [UIImage imageWithData:data];
+                image = [image fixOrientation];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
                     previewVC.image = image;
