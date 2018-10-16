@@ -50,14 +50,17 @@
     __weak typeof(self)weakSelf = self;
     [self.navigationController setNavigationBarHidden:YES];
     self.needStartSession = YES;
-    if ([self configAuthorization]) {
-        [self setupCamera:^(BOOL completion) {
-            if (completion) {
-                weakSelf.setupComplete = YES;
-                [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
-            }
-        }];
-    }
+
+    [self checkAuthorization:^(BOOL granted) {
+        if (granted) {
+            [self setupCamera:^(BOOL completion) {
+                if (completion) {
+                    weakSelf.setupComplete = YES;
+                    [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
+                }
+            }];
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -389,16 +392,23 @@
     }
 }
 
-- (BOOL)configAuthorization{
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if (authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusRestricted) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"没有相机权限" message:@"请去设置-隐私-相机中对应用授权" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [alertView show];
-        self.hasPriority = NO;
-        return NO;
-    }
-    self.hasPriority = YES;
-    return YES;
+- (void)alertMessage{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"没有相机权限" message:@"请去设置-隐私-相机中对应用授权" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)checkAuthorization:(void(^)(BOOL granted))completion{
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.hasPriority = granted;
+            if (!granted) {
+                [self alertMessage];
+            }
+            if (completion) {
+                completion(granted);
+            }
+        });
+    }];
 }
 
 - (void)loadUI{
@@ -483,6 +493,12 @@
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    __weak typeof(self)weakSelf = self;
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [weakSelf.delegate captureViewControllerDidDismiss:weakSelf];
+    }];
+    
     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
