@@ -56,6 +56,7 @@
             [self setupCamera:^(BOOL completion) {
                 if (completion) {
                     weakSelf.setupComplete = YES;
+                    [weakSelf startSession];
                     [weakSelf performSelector:@selector(hideTip) withObject:nil afterDelay:1.5];
                 }
             }];

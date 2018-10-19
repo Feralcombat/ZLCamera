@@ -30,6 +30,8 @@
 		287A0B3220EDE0C50090435E /* photo_icon_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2A20EDE0C50090435E /* photo_icon_hide@2x.png */; };
 		287A0B3320EDE0C50090435E /* photo_icon_cut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 287A0B2B20EDE0C50090435E /* photo_icon_cut@2x.png */; };
 		2883C2632133DC7F0077B5F1 /* NSBundle+ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */; };
+		2896DB7821797DEB00D65CAD /* video_icon_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2896DB7621797DEA00D65CAD /* video_icon_edit@2x.png */; };
+		2896DB7921797DEB00D65CAD /* video_icon_edit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2896DB7721797DEB00D65CAD /* video_icon_edit@3x.png */; };
 		289EEC7E2105AA8D000C9168 /* ZLCameraBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */; };
 		A1C4E1376D54C262D11B77E4 /* libPods-ZLCamera-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10586B3A0679E5D57834D91C /* libPods-ZLCamera-OC.a */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,8 @@
 		2883C2622133DC7F0077B5F1 /* NSBundle+ZLCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ZLCamera.m"; sourceTree = "<group>"; };
 		2883EA4C212A993C00777DB3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2883EA4E212A99B000777DB3 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2896DB7621797DEA00D65CAD /* video_icon_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_icon_edit@2x.png"; sourceTree = "<group>"; };
+		2896DB7721797DEB00D65CAD /* video_icon_edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_icon_edit@3x.png"; sourceTree = "<group>"; };
 		289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZLCameraBundle.bundle; sourceTree = "<group>"; };
 		3CF286D61679ECCB116A4D36 /* Pods-ZLCameraFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLCameraFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZLCameraFramework/Pods-ZLCameraFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		50708D536EF5C174C564634F /* Pods-ZLCamera-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLCamera-OC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 			children = (
 				287A0B2B20EDE0C50090435E /* photo_icon_cut@2x.png */,
 				287A0B2520EDE0C40090435E /* photo_icon_cut@3x.png */,
+				2896DB7621797DEA00D65CAD /* video_icon_edit@2x.png */,
+				2896DB7721797DEB00D65CAD /* video_icon_edit@3x.png */,
 				287A0B2A20EDE0C50090435E /* photo_icon_hide@2x.png */,
 				287A0B2820EDE0C50090435E /* photo_icon_hide@3x.png */,
 				287A0B2620EDE0C40090435E /* video_icon_back_student@2x.png */,
@@ -227,6 +233,7 @@
 				287A0AE620EDA9ED0090435E /* Sources */,
 				287A0AE720EDA9ED0090435E /* Frameworks */,
 				287A0AE820EDA9ED0090435E /* Resources */,
+				C3D67EEA04BE559445C7EE55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,8 +319,10 @@
 				287A0B3120EDE0C50090435E /* video_icon_back@2x.png in Resources */,
 				287A0B3220EDE0C50090435E /* photo_icon_hide@2x.png in Resources */,
 				287A0B3020EDE0C50090435E /* photo_icon_hide@3x.png in Resources */,
+				2896DB7821797DEB00D65CAD /* video_icon_edit@2x.png in Resources */,
 				287A0B2D20EDE0C50090435E /* photo_icon_cut@3x.png in Resources */,
 				287A0B2F20EDE0C50090435E /* video_icon_back_student@3x.png in Resources */,
+				2896DB7921797DEB00D65CAD /* video_icon_edit@3x.png in Resources */,
 				287A0B2E20EDE0C50090435E /* video_icon_back_student@2x.png in Resources */,
 				287A0B2C20EDE0C50090435E /* video_icon_back@3x.png in Resources */,
 				287A0B3320EDE0C50090435E /* photo_icon_cut@2x.png in Resources */,
@@ -339,6 +348,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3D67EEA04BE559445C7EE55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/TOCropViewController/TOCropViewControllerBundle.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TOCropViewControllerBundle.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

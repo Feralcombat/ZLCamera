@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZLCamera-OC"
-  s.version      = "1.0.8"
+  s.version      = "1.0.9"
   s.summary      = "A camera like WeChat"
 
   s.homepage     = "https://github.com/Feralcombat/ZLCamera-OC"
@@ -24,5 +24,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "Masonry"
-
+  s.dependency "TOCropViewController"
 end

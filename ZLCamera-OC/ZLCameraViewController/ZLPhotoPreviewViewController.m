@@ -10,10 +10,12 @@
 #import "ZLImageBlurButton.h"
 #import "ZLConstant.h"
 #import <Masonry/Masonry.h>
+#import <TOCropViewController/TOCropViewController.h>
 
-@interface ZLPhotoPreviewViewController ()<UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning>
+@interface ZLPhotoPreviewViewController ()<UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning,TOCropViewControllerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) ZLImageBlurButton *backButton;
+@property (nonatomic, strong) ZLImageBlurButton *editButton;
 @property (nonatomic, strong) UIButton *confirmButton;
 @end
 
@@ -39,8 +41,26 @@
     [self.navigationController popViewControllerAnimated:NO];
 }
 
+- (void)editButton_pressed:(UITapGestureRecognizer *)sender{
+    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:self.image];
+    cropViewController.aspectRatioPickerButtonHidden = YES;
+    cropViewController.delegate = self;
+    [self presentViewController:cropViewController animated:YES completion:nil];
+}
+
 - (void)backButton_pressed:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+#pragma mark - TOCropViewControllerDelegate
+- (void)cropViewController:(TOCropViewController *)cropViewController didFinishCancelled:(BOOL)cancelled{
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle{
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+    self.image = image;
+    self.imageView.image = self.image;
 }
 
 - (void)loadUI{
@@ -59,6 +79,16 @@
     self.confirmButton.clipsToBounds = YES;
     [self.confirmButton addTarget:self action:@selector(confirmButton_pressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.confirmButton];
+    
+    self.editButton = [[ZLImageBlurButton alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    [self.editButton setContentImage:[UIImage imageNamed:@"video_icon_edit" inBundle:[NSBundle bundleWithPath:ZLBundlePath] compatibleWithTraitCollection:nil]];
+    self.editButton.frame = CGRectMake((ZLDeviceWidth - 80)/2, ZLDeviceHeight - 112, 80, 80);
+    self.editButton.layer.cornerRadius = 40;
+    self.editButton.clipsToBounds = true;
+    [self.view addSubview:self.editButton];
+    
+    UITapGestureRecognizer *editButtonClicked = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(editButton_pressed:)];
+    [self.editButton addGestureRecognizer:editButtonClicked];
     
     self.backButton = [[ZLImageBlurButton alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
     [self.backButton setContentImage:[UIImage imageNamed:@"video_icon_back" inBundle:[NSBundle bundleWithPath:ZLBundlePath] compatibleWithTraitCollection:nil]];
@@ -99,8 +129,8 @@
     
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        weakSelf.backButton.frame = CGRectMake((ZLDeviceWidth - 80)/2 - 64, ZLDeviceHeight - 112, 80, 80);
-        weakSelf.confirmButton.frame = CGRectMake((ZLDeviceWidth - 80)/2 + 64, ZLDeviceHeight - 112, 80, 80);
+        weakSelf.backButton.frame = CGRectMake((ZLDeviceWidth - 80)/2 - 92, ZLDeviceHeight - 112, 80, 80);
+        weakSelf.confirmButton.frame = CGRectMake((ZLDeviceWidth - 80)/2 + 92, ZLDeviceHeight - 112, 80, 80);
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];
