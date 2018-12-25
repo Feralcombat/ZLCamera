@@ -50,7 +50,9 @@
     __weak typeof(self)weakSelf = self;
     [self.navigationController setNavigationBarHidden:YES];
     self.needStartSession = YES;
-
+    self.beginGestureScale = 1.0f;
+    self.effectiveScale = 1.0f;
+    
     [self checkAuthorization:^(BOOL granted) {
         if (granted) {
             [self setupCamera:^(BOOL completion) {
