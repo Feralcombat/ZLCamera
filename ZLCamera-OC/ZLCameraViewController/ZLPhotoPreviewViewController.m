@@ -43,6 +43,8 @@
 
 - (void)editButton_pressed:(UITapGestureRecognizer *)sender{
     TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:self.image];
+    cropViewController.customAspectRatio = self.customAspectRatio;
+    cropViewController.aspectRatioLockEnabled = self.aspectRatioLockEnabled;
     cropViewController.aspectRatioPickerButtonHidden = YES;
     cropViewController.delegate = self;
     [self presentViewController:cropViewController animated:YES completion:nil];

@@ -15,6 +15,7 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
 
 @interface ZLCameraViewController ()<UINavigationControllerDelegate,ZLCaptureViewControllerDelegate>
 @property (nonatomic, weak) id<ZLCameraViewControllerDelegate> cameraDelegate;
+@property (nonatomic, weak) ZLCaptureViewController *captureVC;
 @end
 
 @implementation ZLCameraViewController
@@ -45,6 +46,8 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
         captureVC.videoEnabled = videoEnabled;
         captureVC.maxVideoDuration = maxVideoDuration;
         captureVC.delegate = self;
+        
+        self.captureVC = captureVC;
     }
     return self;
 }
@@ -58,6 +61,20 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setAspectRatioLockEnabled:(BOOL)aspectRatioLockEnabled{
+    _aspectRatioLockEnabled = aspectRatioLockEnabled;
+    if (self.captureVC) {
+        self.captureVC.aspectRatioLockEnabled = aspectRatioLockEnabled;
+    }
+}
+
+- (void)setCustomAspectRatio:(CGSize)customAspectRatio{
+    _customAspectRatio = customAspectRatio;
+    if (self.captureVC) {
+        self.captureVC.customAspectRatio = customAspectRatio;
+    }
 }
 
 #pragma mark - ZLCaptureViewControllerDelegate

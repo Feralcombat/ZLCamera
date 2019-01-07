@@ -19,4 +19,9 @@
 @interface ZLPhotoPreviewViewController : UIViewController
 @property (nonatomic, copy) UIImage *image;
 @property (nonatomic, weak) id<ZLPhotoPreviewViewControllerDelegate> delegate;
+
+/**裁剪框默认允许的比例*/
+@property (nonatomic, assign) CGSize customAspectRatio;
+/**是否是等比例裁切*/
+@property (nonatomic, assign)  BOOL aspectRatioLockEnabled;
 @end

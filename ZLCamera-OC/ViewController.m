@@ -22,6 +22,8 @@
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:@{ZLCameraVideoEnabledKey:@(1)}];
+    vc.customAspectRatio = CGSizeMake(1, 1);
+    vc.aspectRatioLockEnabled = YES;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

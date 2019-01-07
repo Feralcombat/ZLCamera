@@ -563,6 +563,8 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
                     previewVC.image = image;
+                    previewVC.aspectRatioLockEnabled = weakSelf.aspectRatioLockEnabled;
+                    previewVC.customAspectRatio = weakSelf.customAspectRatio;
                     previewVC.delegate = weakSelf;
                     [weakSelf.navigationController pushViewController:previewVC animated:YES];
                 });

@@ -24,6 +24,10 @@ UIKIT_EXTERN NSString const* ZLCameraVideoMaxDurationKey;
 @end
 
 @interface ZLCameraViewController : UINavigationController
+/**裁剪框默认允许的比例*/
+@property (nonatomic, assign) CGSize customAspectRatio;
+/**是否是等比例裁切*/
+@property (nonatomic, assign)  BOOL aspectRatioLockEnabled;
 
 /**
  初始化相机
