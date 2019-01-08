@@ -77,6 +77,13 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
     }
 }
 
+- (void)setDirectEdit:(BOOL)directEdit{
+    _directEdit = directEdit;
+    if (self.captureVC) {
+        self.captureVC.directEdit = directEdit;
+    }
+}
+
 #pragma mark - ZLCaptureViewControllerDelegate
 - (void)captureViewControllerDidDismiss:(ZLCaptureViewController *)captureViewController{
     if ([self.cameraDelegate respondsToSelector:@selector(cameraViewControllerDidDismiss:)]){
@@ -113,10 +120,16 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
         return nil;
     }
     else if (operation == UINavigationControllerOperationPush){
-        return toVC;
+        if ([NSStringFromClass([toVC class]) hasPrefix:@"ZL"]) {
+            return toVC;
+        }
+        return nil;
     }
     else{
-        return fromVC;
+        if ([NSStringFromClass([fromVC class]) hasPrefix:@"ZL"]) {
+            return fromVC;
+        }
+        return nil;
     }
 }
 

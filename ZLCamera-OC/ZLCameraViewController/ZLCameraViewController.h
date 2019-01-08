@@ -24,6 +24,8 @@ UIKIT_EXTERN NSString const* ZLCameraVideoMaxDurationKey;
 @end
 
 @interface ZLCameraViewController : UINavigationController
+/**是否直接跳转编辑（仅在只能允许拍照的情况下有效）*/
+@property (nonatomic, assign) BOOL directEdit;
 /**裁剪框默认允许的比例*/
 @property (nonatomic, assign) CGSize customAspectRatio;
 /**是否是等比例裁切*/

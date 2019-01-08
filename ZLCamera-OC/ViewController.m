@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ZLCameraViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<ZLCameraViewControllerDelegate>
 
 @end
 
@@ -21,9 +21,10 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:@{ZLCameraVideoEnabledKey:@(1)}];
+    ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:@{ZLCameraVideoEnabledKey:@(0)}];
     vc.customAspectRatio = CGSizeMake(1, 1);
     vc.aspectRatioLockEnabled = YES;
+//    vc.directEdit = YES;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -32,5 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)cameraViewController:(ZLCameraViewController *)cameraViewController didFinishPickImage:(UIImage *)image{
+    
+}
 @end

@@ -6,16 +6,17 @@
 //  Copyright © 2018年 周麟. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "ZLCaptureViewController.h"
 #import "ZLVideoPreviewViewController.h"
 #import "ZLPhotoPreviewViewController.h"
-#import <AVFoundation/AVFoundation.h>
 #import "ZLBlurButton.h"
 #import "ZLConstant.h"
 #import "UIImage+ZLFixOrientation.h"
 #import <Masonry/Masonry.h>
+#import <TOCropViewController/TOCropViewController.h>
 
-@interface ZLCaptureViewController ()<ZLBlurButtonDelegate,UIAlertViewDelegate,AVCaptureFileOutputRecordingDelegate,ZLVideoPreviewViewControllerDelegate,ZLPhotoPreviewViewControllerDelegate,UIGestureRecognizerDelegate>
+@interface ZLCaptureViewController ()<ZLBlurButtonDelegate,UIAlertViewDelegate,AVCaptureFileOutputRecordingDelegate,ZLVideoPreviewViewControllerDelegate,ZLPhotoPreviewViewControllerDelegate,UIGestureRecognizerDelegate, TOCropViewControllerDelegate>
 @property (nonatomic, strong) AVCaptureDevice *videoDevice;
 @property (nonatomic, strong) AVCaptureDevice *audioDevice;
 @property (nonatomic, strong) AVCaptureDeviceInput *videoInput;
@@ -561,16 +562,44 @@
                 }
                 image = [image fixOrientation];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
-                    previewVC.image = image;
-                    previewVC.aspectRatioLockEnabled = weakSelf.aspectRatioLockEnabled;
-                    previewVC.customAspectRatio = weakSelf.customAspectRatio;
-                    previewVC.delegate = weakSelf;
-                    [weakSelf.navigationController pushViewController:previewVC animated:YES];
+                    [weakSelf previewWithImage:image];
                 });
             }
         }];
     }
+}
+
+- (void)previewWithImage:(UIImage *)image{
+    if (self.photoEnabled && !self.videoEnabled && self.directEdit) {
+        TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
+        cropViewController.customAspectRatio = self.customAspectRatio;
+        cropViewController.aspectRatioLockEnabled = self.aspectRatioLockEnabled;
+        cropViewController.aspectRatioPickerButtonHidden = YES;
+        cropViewController.delegate = self;
+        [self.navigationController pushViewController:cropViewController animated:YES];
+    }
+    else{
+        ZLPhotoPreviewViewController *previewVC = [[ZLPhotoPreviewViewController alloc] init];
+        previewVC.image = image;
+        previewVC.aspectRatioLockEnabled = self.aspectRatioLockEnabled;
+        previewVC.customAspectRatio = self.customAspectRatio;
+        previewVC.delegate = self;
+        [self.navigationController pushViewController:previewVC animated:YES];
+    }
+}
+
+#pragma mark - TOCropViewControllerDelegate
+- (void)cropViewController:(TOCropViewController *)cropViewController didFinishCancelled:(BOOL)cancelled{
+    [cropViewController.navigationController popViewControllerAnimated:NO];
+}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle{
+    if ([self.delegate respondsToSelector:@selector(captureViewController:didFinishPickImage:)]) {
+        [self.delegate captureViewController:self didFinishPickImage:image];
+    }
+    [cropViewController dismissViewControllerAnimated:YES completion:^{
+
+    }];;
 }
 
 - (void)blurButtonLongPressed:(ZLBlurButton *)button isStart:(BOOL)isStart{

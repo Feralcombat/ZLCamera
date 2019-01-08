@@ -47,7 +47,7 @@
     cropViewController.aspectRatioLockEnabled = self.aspectRatioLockEnabled;
     cropViewController.aspectRatioPickerButtonHidden = YES;
     cropViewController.delegate = self;
-    [self presentViewController:cropViewController animated:YES completion:nil];
+    [self.navigationController pushViewController:cropViewController animated:YES];
 }
 
 - (void)backButton_pressed:(UIButton *)sender{
@@ -56,11 +56,11 @@
 
 #pragma mark - TOCropViewControllerDelegate
 - (void)cropViewController:(TOCropViewController *)cropViewController didFinishCancelled:(BOOL)cancelled{
-    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+    [cropViewController.navigationController popViewControllerAnimated:NO];
 }
 
 - (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle{
-    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+    [cropViewController.navigationController popViewControllerAnimated:NO];
     self.image = image;
     self.imageView.image = self.image;
 }
