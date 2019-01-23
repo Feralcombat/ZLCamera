@@ -21,7 +21,7 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:@{ZLCameraVideoEnabledKey:@(0)}];
+    ZLCameraViewController *vc = [[ZLCameraViewController alloc] initWithDelegate:self options:nil];
     vc.customAspectRatio = CGSizeMake(1, 1);
     vc.aspectRatioLockEnabled = YES;
 //    vc.directEdit = YES;

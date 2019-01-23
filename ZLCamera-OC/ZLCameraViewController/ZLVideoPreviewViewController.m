@@ -46,6 +46,7 @@
 }
 
 - (void)loadUI{
+    self.view.backgroundColor = [UIColor blackColor];
     
     self.playerItem = [[AVPlayerItem alloc] initWithURL:self.playerUrl];
     AVPlayer *player = [AVPlayer playerWithPlayerItem:self.playerItem];
