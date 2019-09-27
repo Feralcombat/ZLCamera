@@ -24,6 +24,7 @@ NSString const* ZLCameraVideoMaxDurationKey = @"ZLCameraVideoMaxDurationKey";
     ZLCaptureViewController *captureVC = [[ZLCaptureViewController alloc] init];
     self = [super initWithRootViewController:captureVC];
     if (self) {
+        self.modalPresentationStyle = UIModalPresentationFullScreen;
         self.cameraDelegate = delegate;
         BOOL photoEnabled = YES;
         BOOL videoEnabled = YES;
