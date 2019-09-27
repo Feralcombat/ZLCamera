@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZLCamera-OC"
-  s.version      = "1.1.5"
+  s.version      = '1.1.5'
   s.summary      = "A camera like WeChat"
 
   s.homepage     = "https://github.com/Feralcombat/ZLCamera-OC"
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/Feralcombat/ZLCamera-OC.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Feralcombat/ZLCamera-OC.git", :tag => s.version.to_s }
 
   s.source_files  = "ZLCamera-OC/ZLCameraViewController/*.{h,m}"
   s.resources = "ZLCamera-OC/ZLCameraViewController/*.{bundle}"
