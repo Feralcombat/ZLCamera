@@ -41,18 +41,22 @@
 @property (nonatomic, assign) CGFloat effectiveScale;
 @property (nonatomic, strong) NSTimer *countTimer;
 @property (nonatomic, assign) NSInteger currentTime;
+/// 监听当前设备方向
+@property (nonatomic, assign) UIDeviceOrientation currentOrientation;
 @end
 
 @implementation ZLCaptureViewController
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     __weak typeof(self)weakSelf = self;
     [self.navigationController setNavigationBarHidden:YES];
-    self.needStartSession = YES;
-    self.beginGestureScale = 1.0f;
-    self.effectiveScale = 1.0f;
+    [self didInitialize];
     
     [self checkAuthorization:^(BOOL granted) {
         if (granted) {
@@ -65,6 +69,13 @@
             }];
         }
     }];
+}
+
+- (void)didInitialize{
+    self.needStartSession = YES;
+    self.beginGestureScale = 1.0f;
+    self.effectiveScale = 1.0f;
+    [self setupNotification];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -87,6 +98,18 @@
 }
 
 #pragma mark - Action
+- (void)setupNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDeviceRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)handleDeviceRotate:(NSNotification *)noti{
+    UIDevice *currentDevice = noti.object;
+    if (UIDeviceOrientationIsFlat(currentDevice.orientation)) {
+        return;
+    }
+    self.currentOrientation = currentDevice.orientation;
+}
+
 - (void)startRecord{
     NSString * fileName = [[NSUUID UUID] UUIDString];
 
@@ -554,10 +577,10 @@
                 NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [UIImage imageWithData:data];
                 //当横着拍照片时需要强制设置一下照片方向
-                if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
+                if (weakSelf.currentOrientation == UIDeviceOrientationLandscapeRight) {
                     image = [UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationDown];
                 }
-                else if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft){
+                else if (weakSelf.currentOrientation == UIDeviceOrientationLandscapeLeft){
                     image = [UIImage imageWithCGImage:image.CGImage scale:1.0 orientation:UIImageOrientationUp];
                 }
                 image = [image fixOrientation];
