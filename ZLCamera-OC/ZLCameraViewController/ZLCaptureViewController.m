@@ -362,13 +362,10 @@
     __weak typeof(self)weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         weakSelf.videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-        weakSelf.audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
         
         weakSelf.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:weakSelf.videoDevice error:nil];
-        weakSelf.audioInput = [[AVCaptureDeviceInput alloc] initWithDevice:weakSelf.audioDevice error:nil];
         
         weakSelf.imageOutput = [[AVCaptureStillImageOutput alloc] init];
-        weakSelf.movieOutput = [[AVCaptureMovieFileOutput alloc] init];
         
         weakSelf.session = [[AVCaptureSession alloc] init];
         if ([weakSelf.session canSetSessionPreset:AVCaptureSessionPresetHigh]) {
@@ -379,19 +376,25 @@
             [weakSelf.session addInput:weakSelf.videoInput];
         }
         
-        if ([weakSelf.session canAddInput:weakSelf.audioInput]) {
-            [weakSelf.session addInput:weakSelf.audioInput];
-        }
-        
         if ([weakSelf.session canAddOutput:weakSelf.imageOutput]) {
             [weakSelf.session addOutput:weakSelf.imageOutput];
         }
         
-        if ([weakSelf.session canAddOutput:weakSelf.movieOutput]) {
-            [weakSelf.session addOutput:weakSelf.movieOutput];
-            AVCaptureConnection *connection = [self.movieOutput connectionWithMediaType:AVMediaTypeVideo];
-            if (connection.supportsVideoStabilization) {
-                connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeCinematic;
+        if (weakSelf.videoEnabled) {
+            weakSelf.audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+            weakSelf.audioInput = [[AVCaptureDeviceInput alloc] initWithDevice:weakSelf.audioDevice error:nil];
+            weakSelf.movieOutput = [[AVCaptureMovieFileOutput alloc] init];
+            
+            if ([weakSelf.session canAddInput:weakSelf.audioInput]) {
+                [weakSelf.session addInput:weakSelf.audioInput];
+            }
+            
+            if ([weakSelf.session canAddOutput:weakSelf.movieOutput]) {
+                [weakSelf.session addOutput:weakSelf.movieOutput];
+                AVCaptureConnection *connection = [weakSelf.movieOutput connectionWithMediaType:AVMediaTypeVideo];
+                if (connection.supportsVideoStabilization) {
+                    connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeCinematic;
+                }
             }
         }
         
