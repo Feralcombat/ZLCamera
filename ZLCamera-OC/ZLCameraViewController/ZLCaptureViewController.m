@@ -368,8 +368,8 @@
         weakSelf.imageOutput = [[AVCaptureStillImageOutput alloc] init];
         
         weakSelf.session = [[AVCaptureSession alloc] init];
-        if ([weakSelf.session canSetSessionPreset:AVCaptureSessionPresetHigh]) {
-            [weakSelf.session setSessionPreset:AVCaptureSessionPresetHigh];
+        if ([weakSelf.session canSetSessionPreset:AVCaptureSessionPresetInputPriority]) {
+            [weakSelf.session setSessionPreset:AVCaptureSessionPresetInputPriority];
         }
         
         if ([weakSelf.session canAddInput:weakSelf.videoInput]) {
@@ -595,7 +595,20 @@
     }
 }
 
+- (UIImage *)resizeImage:(UIImage *)image{
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat scale = MIN(image.size.width / screenWidth, image.size.height / screenHeight);
+    CGSize newSize = CGSizeMake(screenWidth *scale, screenHeight * scale);
+
+    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, CGRectMake((image.size.width - newSize.width)/2, (image.size.height - newSize.height)/2, newSize.width, newSize.height));
+    UIImage *croppedimage = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
+    CGImageRelease(imageRef);
+    return croppedimage;
+}
+
 - (void)previewWithImage:(UIImage *)image{
+    image = [self resizeImage:image];
     if (self.photoEnabled && !self.videoEnabled && self.directEdit) {
         TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
         cropViewController.customAspectRatio = self.customAspectRatio;
