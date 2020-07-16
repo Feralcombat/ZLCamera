@@ -8,6 +8,7 @@
 
 #ifndef ZLCamera_OC_h
 #define ZLCamera_OC_h
-#import <ZLCamera-OC/ZLCameraViewController.h>
+
+#import <ZLCamera_OC/ZLCameraViewController.h>
 
 #endif /* ZLCamera_OC_h */
