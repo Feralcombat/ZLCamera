@@ -93,6 +93,7 @@
 		2896DB7621797DEA00D65CAD /* video_icon_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_icon_edit@2x.png"; sourceTree = "<group>"; };
 		2896DB7721797DEB00D65CAD /* video_icon_edit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_icon_edit@3x.png"; sourceTree = "<group>"; };
 		289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZLCameraBundle.bundle; sourceTree = "<group>"; };
+		28E3A37724C0139D0049B806 /* ZLCamera-OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZLCamera-OC.h"; sourceTree = "<group>"; };
 		3CF286D61679ECCB116A4D36 /* Pods-ZLCameraFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLCameraFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZLCameraFramework/Pods-ZLCameraFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		50708D536EF5C174C564634F /* Pods-ZLCamera-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLCamera-OC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC.debug.xcconfig"; sourceTree = "<group>"; };
 		8E11CA882B4A8F0AA0B6ABCE /* Pods-ZLCamera-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLCamera-OC.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZLCamera-OC/Pods-ZLCamera-OC.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				289EEC7D2105AA8D000C9168 /* ZLCameraBundle.bundle */,
+				28E3A37724C0139D0049B806 /* ZLCamera-OC.h */,
 				287A0B0420EDAAE00090435E /* ZLConstant.h */,
 				287A0B0520EDAB590090435E /* ZLBlurButton.h */,
 				287A0B0620EDAB590090435E /* ZLBlurButton.m */,

@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZLCamera-OC"
-  s.version      = '1.1.8'
+  s.version      = '1.1.9'
   s.summary      = "A camera like WeChat"
 
   s.homepage     = "https://github.com/Feralcombat/ZLCamera-OC"
