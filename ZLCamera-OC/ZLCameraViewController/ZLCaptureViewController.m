@@ -598,7 +598,7 @@
 - (UIImage *)resizeImage:(UIImage *)image{
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    CGFloat scale = MIN(image.size.width / screenWidth, image.size.height / screenHeight);
+    CGFloat scale = MAX(image.size.width / screenWidth, image.size.height / screenHeight);
     CGSize newSize = CGSizeMake(screenWidth *scale, screenHeight * scale);
 
     CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, CGRectMake((image.size.width - newSize.width)/2, (image.size.height - newSize.height)/2, newSize.width, newSize.height));
