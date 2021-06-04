@@ -1,9 +1,8 @@
 //
 //  ViewController.h
-//  ZLCamera-OC
+//  ZLCamera
 //
-//  Created by 周麟 on 2018/7/5.
-//  Copyright © 2018年 周麟. All rights reserved.
+//  Created by 周麟 on 2021/6/4.
 //
 
 #import <UIKit/UIKit.h>

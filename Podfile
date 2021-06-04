@@ -1,6 +1,6 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 
-target 'ZLCamera-OC' do
+target 'ZLCamera' do
 
 pod 'Masonry'
 pod 'TOCropViewController'
